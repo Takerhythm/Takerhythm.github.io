@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="固定IP,">
+  <meta name="keywords" content="jwt,BUG,">
 
 
 
@@ -79,25 +79,25 @@
 
 
 
-<meta name="description" content="一进入虚拟网络编辑器。一般vmware workstation pro才有 二设置子网ip 格式 xxx.xxx.xxx.0 子网掩码 格式 255.255.255.0一般不用更改 三主机号设置为2即可(最后一位) 四ubuntu右上角点网络连接–编辑链接 五选择nat(我的叫nat,一般叫做Wired connection1),点击编辑 六地址可以在终端中输入ifconfig查看,网关设置与第三">
-<meta name="keywords" content="固定IP">
+<meta name="description" content="记录一次django项目中的jwt认证bug,避免他人踩坑该bug表现为登录成功后跳转回登录界面,如下图 断点调试首先我要确定这是前段还是后端的问题 前端断点最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面12345678.catch(error =&amp;gt; &amp;#123;                    if (error.response.status==401">
+<meta name="keywords" content="jwt,BUG">
 <meta property="og:type" content="article">
-<meta property="og:title" content="虚拟机固定IP">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/虚拟机固定IP/index.html">
+<meta property="og:title" content="django_jwt认证BUG">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/index.html">
 <meta property="og:site_name" content="rhythm&#39;s blog">
-<meta property="og:description" content="一进入虚拟网络编辑器。一般vmware workstation pro才有 二设置子网ip 格式 xxx.xxx.xxx.0 子网掩码 格式 255.255.255.0一般不用更改 三主机号设置为2即可(最后一位) 四ubuntu右上角点网络连接–编辑链接 五选择nat(我的叫nat,一般叫做Wired connection1),点击编辑 六地址可以在终端中输入ifconfig查看,网关设置与第三">
+<meta property="og:description" content="记录一次django项目中的jwt认证bug,避免他人踩坑该bug表现为登录成功后跳转回登录界面,如下图 断点调试首先我要确定这是前段还是后端的问题 前端断点最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面12345678.catch(error =&amp;gt; &amp;#123;                    if (error.response.status==401">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/5.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/6.png">
-<meta property="og:updated_time" content="2019-03-17T07:10:00.175Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/1.gif">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/6.png">
+<meta property="og:updated_time" content="2019-03-23T10:12:29.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="虚拟机固定IP">
-<meta name="twitter:description" content="一进入虚拟网络编辑器。一般vmware workstation pro才有 二设置子网ip 格式 xxx.xxx.xxx.0 子网掩码 格式 255.255.255.0一般不用更改 三主机号设置为2即可(最后一位) 四ubuntu右上角点网络连接–编辑链接 五选择nat(我的叫nat,一般叫做Wired connection1),点击编辑 六地址可以在终端中输入ifconfig查看,网关设置与第三">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/17/虚拟机固定IP/1.png">
+<meta name="twitter:title" content="django_jwt认证BUG">
+<meta name="twitter:description" content="记录一次django项目中的jwt认证bug,避免他人踩坑该bug表现为登录成功后跳转回登录界面,如下图 断点调试首先我要确定这是前段还是后端的问题 前端断点最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面12345678.catch(error =&amp;gt; &amp;#123;                    if (error.response.status==401">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/1.gif">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/17/虚拟机固定IP/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/django-jwt认证BUG/">
 
 
 
 
 
-  <title>虚拟机固定IP | rhythm's blog</title>
+  <title>django_jwt认证BUG | rhythm's blog</title>
   
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/虚拟机固定IP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/django-jwt认证BUG/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="takerhythm">
@@ -277,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">虚拟机固定IP</h1>
+          <h1 class="post-title" itemprop="name headline">django_jwt认证BUG</h1>
         
 
         <div class="post-meta">
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T12:54:52+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T16:44:41+08:00">
+                2019-03-23
               </time>
             
 
@@ -312,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/虚拟机/" itemprop="url" rel="index">
-                    <span itemprop="name">虚拟机</span>
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
                   </a>
                 </span>
 
@@ -349,12 +349,11 @@
       
 
       
-        <h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>进入虚拟网络编辑器。一般vmware workstation pro才有<br><img src="/2019/03/17/虚拟机固定IP/1.png" alt="第一步"></p>
-<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p>设置子网ip 格式 xxx.xxx.xxx.0 子网掩码 格式 255.255.255.0<br>一般不用更改<br><img src="/2019/03/17/虚拟机固定IP/2.png" alt="第二步"></p>
-<h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p>主机号设置为2即可(最后一位)<br><img src="/2019/03/17/虚拟机固定IP/3.png" alt="第三步"></p>
-<h1 id="四"><a href="#四" class="headerlink" title="四"></a>四</h1><p>ubuntu右上角点网络连接–编辑链接<br><img src="/2019/03/17/虚拟机固定IP/4.png" alt="第四步"></p>
-<h1 id="五"><a href="#五" class="headerlink" title="五"></a>五</h1><p>选择nat(我的叫nat,一般叫做Wired connection1),点击编辑<br><img src="/2019/03/17/虚拟机固定IP/5.png" alt="第五步"></p>
-<h1 id="六"><a href="#六" class="headerlink" title="六"></a>六</h1><p>地址可以在终端中输入ifconfig查看,网关设置与第三步相同即可<br><img src="/2019/03/17/虚拟机固定IP/6.png" alt="第六步"></p>
+        <p>记录一次django项目中的jwt认证bug,避免他人踩坑<br>该bug表现为登录成功后跳转回登录界面,如下图<br><img src="/2019/03/23/django-jwt认证BUG/1.gif" alt="1"></p>
+<h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><p>首先我要确定这是前段还是后端的问题</p>
+<h2 id="前端断点"><a href="#前端断点" class="headerlink" title="前端断点"></a>前端断点</h2><p><img src="/2019/03/23/django-jwt认证BUG/2.png" alt="2"><br><img src="/2019/03/23/django-jwt认证BUG/3.png" alt="3"><br>最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.catch(error =&gt; &#123;</span><br><span class="line">                    if (error.response.status==401 || error.response.status==403) &#123;</span><br><span class="line">                        location.href = &apos;/login.html?next=/user_center_info.html&apos;;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            location.href = &apos;/login.html?next=/user_center_info.html&apos;;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来判断为什么出现403状态码,有三种可能<br>1.前端未带上jwt<br>2.前段带上错误的jwt<br>3.后端jwt配置错误<br>经过刚才的前端断点,第一第二条可以排除<br>所以我去配置文件中查看jwt配置<br><img src="/2019/03/23/django-jwt认证BUG/4.png" alt="4"><br>发现配置无误,陷入了沉思</p>
+<h2 id="后端断点"><a href="#后端断点" class="headerlink" title="后端断点"></a>后端断点</h2><p>随后在后端进行断点调试,发现返回的是匿名用户身份<br>也就是说没走jwt认证<br>不知道全局配置为何不生效<br>最后只能在类视图中加上局部认证<br><img src="/2019/03/23/django-jwt认证BUG/5.png" alt="5"><br>再次登录,不再跳转,bug解决<br><img src="/2019/03/23/django-jwt认证BUG/6.png" alt="6"></p>
 
       
     </div>
@@ -372,7 +371,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/固定IP/" rel="tag"># 固定IP</a>
+            <a href="/tags/jwt/" rel="tag"># jwt</a>
+          
+            <a href="/tags/BUG/" rel="tag"># BUG</a>
           
         </div>
       
@@ -385,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/17/二叉树/" rel="next" title="二叉树">
-                <i class="fa fa-chevron-left"></i> 二叉树
+              <a href="/2019/03/23/charles安卓模拟器抓包配置/" rel="next" title="charles安卓模拟器抓包配置">
+                <i class="fa fa-chevron-left"></i> charles安卓模拟器抓包配置
               </a>
             
           </div>
@@ -394,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/23/二叉搜索树/" rel="prev" title="二叉搜索树">
-                二叉搜索树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number">1.</span> <span class="nav-text">一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二"><span class="nav-number">2.</span> <span class="nav-text">二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三"><span class="nav-number">3.</span> <span class="nav-text">三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四"><span class="nav-number">4.</span> <span class="nav-text">四</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五"><span class="nav-number">5.</span> <span class="nav-text">五</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六"><span class="nav-number">6.</span> <span class="nav-text">六</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#断点调试"><span class="nav-number">1.</span> <span class="nav-text">断点调试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端断点"><span class="nav-number">1.1.</span> <span class="nav-text">前端断点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端断点"><span class="nav-number">1.2.</span> <span class="nav-text">后端断点</span></a></li></ol></li></ol></div>
             
 
           </div>
