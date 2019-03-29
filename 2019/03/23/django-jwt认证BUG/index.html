@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/django-jwt认证BUG/6.png">
-<meta property="og:updated_time" content="2019-03-23T10:12:29.155Z">
+<meta property="og:updated_time" content="2019-03-29T04:18:08.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="django_jwt认证BUG">
 <meta name="twitter:description" content="记录一次django项目中的jwt认证bug,避免他人踩坑该bug表现为登录成功后跳转回登录界面,如下图 断点调试首先我要确定这是前段还是后端的问题 前端断点最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面12345678.catch(error =&amp;gt; &amp;#123;                    if (error.response.status==401">
@@ -352,7 +352,7 @@
         <p>记录一次django项目中的jwt认证bug,避免他人踩坑<br>该bug表现为登录成功后跳转回登录界面,如下图<br><img src="/2019/03/23/django-jwt认证BUG/1.gif" alt="1"></p>
 <h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><p>首先我要确定这是前段还是后端的问题</p>
 <h2 id="前端断点"><a href="#前端断点" class="headerlink" title="前端断点"></a>前端断点</h2><p><img src="/2019/03/23/django-jwt认证BUG/2.png" alt="2"><br><img src="/2019/03/23/django-jwt认证BUG/3.png" alt="3"><br>最后发现跳转是下面代码的问题,因为后端返回403,所以页面又跳转回登录页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.catch(error =&gt; &#123;</span><br><span class="line">                    if (error.response.status==401 || error.response.status==403) &#123;</span><br><span class="line">                        location.href = &apos;/login.html?next=/user_center_info.html&apos;;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            location.href = &apos;/login.html?next=/user_center_info.html&apos;;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>接下来判断为什么出现403状态码,有三种可能<br>1.前端未带上jwt<br>2.前段带上错误的jwt<br>3.后端jwt配置错误<br>经过刚才的前端断点,第一第二条可以排除<br>所以我去配置文件中查看jwt配置<br><img src="/2019/03/23/django-jwt认证BUG/4.png" alt="4"><br>发现配置无误,陷入了沉思</p>
+<p>接下来判断为什么出现403状态码,有三种可能<br>1.前端未带上jwt<br>2.前端带上错误的jwt<br>3.后端jwt配置错误<br>经过刚才的前端断点,第一第二条可以排除<br>所以我去配置文件中查看jwt配置<br><img src="/2019/03/23/django-jwt认证BUG/4.png" alt="4"><br>发现配置无误,陷入了沉思</p>
 <h2 id="后端断点"><a href="#后端断点" class="headerlink" title="后端断点"></a>后端断点</h2><p>随后在后端进行断点调试,发现返回的是匿名用户身份<br>也就是说没走jwt认证<br>不知道全局配置为何不生效<br>最后只能在类视图中加上局部认证<br><img src="/2019/03/23/django-jwt认证BUG/5.png" alt="5"><br>再次登录,不再跳转,bug解决<br><img src="/2019/03/23/django-jwt认证BUG/6.png" alt="6"></p>
 
       
@@ -395,6 +395,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/搭建个人博客/" rel="prev" title="搭建个人博客">
+                搭建个人博客 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -482,7 +486,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -493,7 +497,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
